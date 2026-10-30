@@ -1,0 +1,97 @@
+/* Base Page and Sage Background Layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #abbcb7; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Form Container Card */
+.form-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px 40px;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Header Text with Underline Alignment */
+.form-container h2 {
+    color: #2b3a42;
+    text-align: center;
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #2b3a42;
+}
+
+/* 
+ * Table Layout Strategy: 
+ * Using HTML forms inside a Grid block automatically arranges 
+ * labels on the left and form inputs on the right like columns.
+ */
+form {
+    display: grid;
+    grid-template-columns: 150px 1fr; /* Fixed width for labels, fluid for fields */
+    row-gap: 20px;
+    column-gap: 15px;
+    align-items: start;
+}
+
+/* Make each group wrapper display seamlessly inside the table cells */
+.form-group {
+    display: contents; 
+}
+
+/* Table Labels (Left Column) */
+.form-group > label {
+    font-weight: bold;
+    color: #333333;
+    font-size: 14px;
+    padding-top: 10px; /* Aligns text cleanly with input box vertical height */
+}
+
+/* Table Inputs & Selection Boxes (Right Column) */
+input[type="text"],
+input[type="email"],
+select,
+.radio-group {
+    grid-column: 2; /* Force content strictly into the right structural column */
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333333;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+/* Unset border/padding properties specifically for option groupings */
+.radio-group {
+    border: none;
+    padding: 5px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Labels Inside Selection Rows */
+.radio-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    font-size: 14px;
+    color: #333333;
+    cursor: pointer;
+}
+
+/* Form Selection Buttons Margins */
+.radio-group input[type="radio"] {
+    margin: 0 8px 0 0;
+}
